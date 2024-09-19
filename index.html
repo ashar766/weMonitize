@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    .content-section {
+      display: none;
+    }
+
+    .content-section:target {
+      display: block;
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+
+    .element {
+      animation: fadeOut 2s forwards;
+      animation-timeline: scroll();
+    }
+
+    .square {
+      padding-top: 20%;
+      height: 50vh;
+      width: 100px;
+      background-color: black;
+    }
+
+    .c-height {
+      height: 300vh;
+    }
+  </style>
+  <title>Dashboard</title>
+</head>
+
+<body>
+  <h2>Teachers Information</h2>
+  <p id="teacher-list"></p>
+
+  <script>
+    const teacher = [
+      { id: 1, name: "ashar", age: 23, education: "bscs" },
+      { id: 1, name: "ashar", age: 23, education: "bscs" },
+      { id: 1, name: "ashar", age: 23, education: "bsse" },
+      { id: 1, name: "ahmed", age: 23 },
+      { id: 1, name: "ashar", age: 23, education: "bba" },
+    ];
+
+    const teacherList = document.getElementById("teacher-list");
+
+    const content = teacher
+      .map((teachers) => {
+        let example;
+
+        // if statements example
+
+        // if (teachers?.education) {
+        //   if (teachers?.education === "bscs") {
+        //     example = "education: bachelors in computer science";
+        //   }
+        //   else if (teachers?.education === "bsse"){
+        //     example = "education: bachelors in software engineering";
+        //   }
+        //   else{
+        //     example = `education: ${teachers?.education}`;
+        //   }
+        // } else {
+        //   example = "education: not available";
+        // }
+
+        // switch statements example
+
+        switch (teachers?.education) {
+          case "bscs":
+            example = "education: bachelors in computer science";
+            break;
+          case "bsse":
+            example = "education: bachelors in software engineering";
+            break;
+          case undefined :
+            example = "education: not available";
+            break;
+          default:
+            example = `${teachers?.education}`;
+        }
+
+        return `<li>
+   id: ${teachers?.id} <br>
+   name: ${teachers?.name} <br>
+   age: ${teachers?.age} <br>
+   ${example} <br><br>
+   </li>`;
+      })
+      .join("");
+
+    teacherList.innerHTML = `<ul>${content}</ul>`;
+  </script>
+
+  <!-- <script>
+
+    const teacher = [
+      {id:1,name:'ashar',age:25,degree:'bscs'},
+      {id:1,name:'javed',age:23,degree:'bba'},
+      {id:1,age:21,degree:'bscs'},
+      {id:1,name:'bilal',age:22,degree:'bscs'},
+      {id:1,name:'hamza',age:25,degree:'bsse'}
+      
+    ];
+
+    const teacherList = document.getElementById('teacher-list');
+
+    const content = teacher.map(teachers => {
+
+    let a;
+
+    if(teachers.name)
+   {
+    a=`name: ${teachers.name}`;
+    }
+    else
+    {
+    a='name: not available';
+    }
+    return`
+
+    <li>
+    id: ${teachers.id} <br>
+    ${a} <br>
+    age: ${teachers.age} <br>
+    degree: ${teachers.degree} <br> 
+    </li>`;
+
+  }).join('');
+
+    teacherList.innerHTML = `<ul>${content}</ul>` ;
+
+   </script> -->
+
+  <!-- <header
+    <div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    </div>
+
+    <nav>
+       Navbar content 
+      <a href="#section1">Section 1</a>
+      <a href="#section2">Section 2</a>
+      <div class="element"></div>
+
+    </nav>
+  </header> 
+  <div class="container">
+    <aside>
+      Sidebar content
+      <a href="#section1">Section 1</a>
+      <a href="#section2">Section 2</a>
+    </aside>
+    <main>
+      <div class="background-image"></div>-->
+
+  <!-- Main content sections -->
+  <!-- <div id="section1" class="content-section">
+        <h1>Section 1</h1>
+        <p>This is the content for Section 1.</p>
+      </div>
+      <div id="section2" class="content-section">
+        <h1>Section 2</h1>
+        <p>This is the content for Section 2.</p>
+      </div>
+
+      <div>
+      <div class="element c-height"><div class="square">yo</div></div>
+
+      </div>
+    </main>
+  </div> -->
+</body>
+
+</html>
